@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl} from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'html-template-editor';
+  templateDrivenForm = 'This is contenteditable text for template-driven form';
+  myControl = new FormControl;
+  Static = false;
+
+  text = 'Hello, World!';
+  html = `<div *ngIf=${this.Static}><p>Content</p><div>`;
+
+  handler(item) {
+    console.log(item.firstChild);
+  }
+
 }
